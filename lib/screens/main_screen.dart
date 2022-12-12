@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:xox/sayfa_gecisi.dart';
+import 'package:xox/screens/xoxGameScreen.dart';
 import 'package:xox/widget_build/bosluk.dart';
 import 'package:xox/widget_build/renkler.dart';
 
@@ -29,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     }
 
     //Button oluşturmak için kullanılır.
-    Widget denemebutonu(String buttonAdi) {
+    Widget denemebutonu(String buttonAdi, int butonId) {
       return TextButton(
           style: ButtonStyle(
               shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
@@ -41,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
               backgroundColor:
                   MaterialStateProperty.all<Color>(Renkler().buttonRengi)),
           onPressed: () {
-            initState();
+            SayfaGecisleri().sayfagec(butonId, context);
           },
           child: Text(
             textYazisi(buttonAdi),
@@ -65,9 +67,9 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           children: [
             Bosluk().bosluk(100.0),
-            denemebutonu("oyna"),
+            denemebutonu("oyna", 1),
             Bosluk().bosluk(120.0),
-            denemebutonu("ayarlar"),
+            denemebutonu("ayarlar", 2),
           ],
         ),
       ),

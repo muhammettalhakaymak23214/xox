@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: const MainScreen(),
-      home: const xoxGameScreen(),
+      home: const MainScreen(),
+      //home: const xoxGameScreen(),
     );
   }
 }
