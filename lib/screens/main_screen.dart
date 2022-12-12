@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xox/widget_build/bosluk.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -8,12 +9,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  String deneme = "a";
-  int secim = 0;
-
   //Renkler:
   Color buttonRengi = Colors.transparent;
-  Color metinRengi = Colors.black;
+  Color metinRengi = Colors.white;
   Color shadowColor = Colors.red;
 
   @override
@@ -38,8 +36,12 @@ class _MainScreenState extends State<MainScreen> {
     Widget denemebutonu(String buttonAdi) {
       return TextButton(
           style: ButtonStyle(
+              shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
+                return RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15));
+              }),
               side: MaterialStateProperty.resolveWith<BorderSide>(
-                  (states) => BorderSide(color: Colors.black)),
+                  (states) => BorderSide(color: Colors.white, width: 2)),
               backgroundColor: MaterialStateProperty.all<Color>(buttonRengi)),
           onPressed: () {
             initState();
@@ -51,27 +53,23 @@ class _MainScreenState extends State<MainScreen> {
                 shadows: [
                   Shadow(color: shadowColor, blurRadius: 3),
                   Shadow(color: shadowColor, blurRadius: 6),
-                  Shadow(color: shadowColor, blurRadius: 9)
+                  Shadow(color: shadowColor, blurRadius: 9),
+                  Shadow(color: shadowColor, blurRadius: 12),
+                  Shadow(color: shadowColor, blurRadius: 15),
                 ],
                 fontSize: 30),
           ));
     }
 
-    //Bosluk bırakmak için kullanılır.
-    Widget bosluk() {
-      return const SizedBox(
-        height: 100,
-      );
-    }
-
     //Düzen kısmı buradır.
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           children: [
-            bosluk(),
+            Bosluk().bosluk(100.0),
             denemebutonu("oyna"),
-            bosluk(),
+            Bosluk().bosluk(120.0),
             denemebutonu("ayarlar"),
           ],
         ),
