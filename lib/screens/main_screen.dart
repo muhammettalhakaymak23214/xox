@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xox/widget_build/bosluk.dart';
+import 'package:xox/widget_build/renkler.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,11 +10,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  //Renkler:
-  Color buttonRengi = Colors.transparent;
-  Color metinRengi = Colors.white;
-  Color shadowColor = Colors.red;
-
   @override
   Widget build(BuildContext context) {
     //Ekranı yeniler.
@@ -42,20 +38,21 @@ class _MainScreenState extends State<MainScreen> {
               }),
               side: MaterialStateProperty.resolveWith<BorderSide>(
                   (states) => BorderSide(color: Colors.white, width: 2)),
-              backgroundColor: MaterialStateProperty.all<Color>(buttonRengi)),
+              backgroundColor:
+                  MaterialStateProperty.all<Color>(Renkler().buttonRengi)),
           onPressed: () {
             initState();
           },
           child: Text(
             textYazisi(buttonAdi),
             style: TextStyle(
-                color: metinRengi,
+                color: Renkler().metinRengi,
                 shadows: [
-                  Shadow(color: shadowColor, blurRadius: 3),
-                  Shadow(color: shadowColor, blurRadius: 6),
-                  Shadow(color: shadowColor, blurRadius: 9),
-                  Shadow(color: shadowColor, blurRadius: 12),
-                  Shadow(color: shadowColor, blurRadius: 15),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 3),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 6),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 9),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 12),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 15),
                 ],
                 fontSize: 30),
           ));
