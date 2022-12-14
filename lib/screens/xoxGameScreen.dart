@@ -111,7 +111,7 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
 
   Widget kimdeSira(deger) {
     return Text(
-      "Sıra " + kutuyaYazilanDeger + " tarafında :",
+      "< Sıra " + kutuyaYazilanDeger + " tarafında >",
       style: TextStyle(
         color: Renkler().metinRengi,
         fontSize: deger / 2.5,
@@ -120,44 +120,69 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
           Shadow(color: Renkler().shadowColor, blurRadius: 6),
           Shadow(color: Renkler().shadowColor, blurRadius: 9),
           Shadow(color: Renkler().shadowColor, blurRadius: 12),
-          Shadow(color: Renkler().shadowColor, blurRadius: 15),
+          Shadow(color: Colors.white, blurRadius: 20),
         ],
       ),
     );
   }
 
   //Kutular
-  Widget kutu(double buttonId, deger) {
-    return TextButton(
-        style: ButtonStyle(
-            shadowColor: MaterialStateProperty.all(Colors.white),
-            overlayColor: MaterialStateProperty.all(Colors.white),
-            shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
-              return RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0));
-            }),
-            side: MaterialStateProperty.resolveWith<BorderSide>(
-                (states) => BorderSide(
-                      color: Colors.white,
-                    )),
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.black)),
-        onPressed: () {
-          xmioMu(buttonId);
-          setState(() {});
-        },
-        child: Text(
-          kutuyaTextiGonder(buttonId),
-          style: TextStyle(
-              color: Renkler().metinRengi,
-              shadows: [
-                Shadow(color: Renkler().shadowColor, blurRadius: 3),
-                Shadow(color: Renkler().shadowColor, blurRadius: 6),
-                Shadow(color: Renkler().shadowColor, blurRadius: 9),
-                Shadow(color: Renkler().shadowColor, blurRadius: 12),
-                Shadow(color: Renkler().shadowColor, blurRadius: 15),
-              ],
-              fontSize: deger / 2.5),
-        ));
+  Widget kutu(double buttonId, double deger, deger2) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.amber,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 3,
+              color: Colors.white,
+            ),
+            BoxShadow(
+              blurRadius: 6,
+              color: Colors.white,
+            ),
+            BoxShadow(
+              blurRadius: 9,
+              color: Colors.white,
+            ),
+            BoxShadow(
+              blurRadius: 12,
+              color: Colors.white,
+            ),
+          ]),
+      height: deger2,
+      width: deger,
+      child: TextButton(
+          style: ButtonStyle(
+              shadowColor: MaterialStateProperty.all(Colors.white),
+              overlayColor: MaterialStateProperty.all(Colors.white),
+              shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
+                return RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0));
+              }),
+              side: MaterialStateProperty.resolveWith<BorderSide>(
+                  (states) => BorderSide(
+                        color: Colors.white,
+                      )),
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.black)),
+          onPressed: () {
+            xmioMu(buttonId);
+            setState(() {});
+          },
+          child: Text(
+            kutuyaTextiGonder(buttonId),
+            style: TextStyle(
+                color: Renkler().metinRengi,
+                shadows: [
+                  Shadow(color: Renkler().shadowColor, blurRadius: 3),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 6),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 9),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 12),
+                  Shadow(color: Renkler().shadowColor, blurRadius: 15),
+                ],
+                fontSize: deger / 2.5),
+          )),
+    );
   }
 
   @override
@@ -183,7 +208,7 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
                 child: geriButonu(responsiveWidth / 2)),
           ),
           SizedBox(
-            height: responsiveHeight / 1.5,
+            height: responsiveHeight / 30,
           ),
           Container(
               alignment: Alignment.center,
@@ -195,66 +220,63 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
           Row(
             children: [
               SizedBox(
-                width: responsiveWidth,
+                width: (responsiveWidth / 30) * 25,
               ),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(1.1, responsiveWidth)),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(1.2, responsiveWidth)),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(1.3, responsiveWidth)),
+              kutu(1.1, responsiveWidth, responsiveHeight),
               SizedBox(
-                width: responsiveWidth,
+                width: (responsiveWidth / 30) * 5,
+              ),
+              kutu(1.2, responsiveWidth, responsiveHeight),
+              SizedBox(
+                width: (responsiveWidth / 30) * 5,
+              ),
+              kutu(1.3, responsiveWidth, responsiveHeight),
+              SizedBox(
+                width: (responsiveWidth / 30) * 25,
               ),
             ],
+          ),
+          SizedBox(
+            height: (responsiveWidth / 30) * 5,
           ),
           Row(
             children: [
               SizedBox(
-                width: responsiveWidth,
+                width: (responsiveWidth / 30) * 25,
               ),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(2.1, responsiveWidth)),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(2.2, responsiveWidth)),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(2.3, responsiveWidth)),
+              kutu(2.1, responsiveWidth, responsiveHeight),
               SizedBox(
-                width: responsiveWidth,
+                width: (responsiveWidth / 30) * 5,
+              ),
+              kutu(2.2, responsiveWidth, responsiveHeight),
+              SizedBox(
+                width: (responsiveWidth / 30) * 5,
+              ),
+              kutu(2.3, responsiveWidth, responsiveHeight),
+              SizedBox(
+                width: (responsiveWidth / 30) * 25,
               ),
             ],
+          ),
+          SizedBox(
+            height: (responsiveWidth / 30) * 5,
           ),
           Row(
             children: [
               SizedBox(
-                width: responsiveWidth,
+                width: (responsiveWidth / 30) * 25,
               ),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(3.1, responsiveWidth)),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(3.2, responsiveWidth)),
-              Container(
-                  height: responsiveHeight,
-                  width: responsiveWidth,
-                  child: kutu(3.3, responsiveWidth)),
+              kutu(3.1, responsiveWidth, responsiveHeight),
               SizedBox(
-                width: responsiveWidth,
+                width: (responsiveWidth / 30) * 5,
+              ),
+              kutu(3.2, responsiveWidth, responsiveHeight),
+              SizedBox(
+                width: (responsiveWidth / 30) * 5,
+              ),
+              kutu(3.3, responsiveWidth, responsiveHeight),
+              SizedBox(
+                width: (responsiveWidth / 30) * 25,
               ),
             ],
           ),
