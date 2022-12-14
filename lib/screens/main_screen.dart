@@ -34,6 +34,7 @@ class _MainScreenState extends State<MainScreen> {
     Widget denemebutonu(String buttonAdi, int butonId) {
       return TextButton(
           style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(Colors.white),
               shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
                 return RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15));
@@ -65,6 +66,7 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: Colors.black,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Bosluk().bosluk(100.0),
             denemebutonu("oyna", 1),

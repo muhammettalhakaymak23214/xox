@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class Bosluk {
   Widget bosluk(double boslukDegeri) {
     return SizedBox(
-      height: boslukDegeri,
+      width: boslukDegeri,
     );
   }
 }
