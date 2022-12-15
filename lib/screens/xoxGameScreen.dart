@@ -174,13 +174,23 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
             style: TextStyle(
                 color: Renkler().metinRengi,
                 shadows: [
-                  Shadow(color: Renkler().shadowColor, blurRadius: 3),
-                  Shadow(color: Renkler().shadowColor, blurRadius: 6),
-                  Shadow(color: Renkler().shadowColor, blurRadius: 9),
-                  Shadow(color: Renkler().shadowColor, blurRadius: 12),
-                  Shadow(color: Renkler().shadowColor, blurRadius: 15),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 3),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 6),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 9),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 12),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 15),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 18),
+                  Renkler()
+                      .golgeRengi(kutuyaTextiGonder(buttonId).toString(), 20),
+                  //ksdfsdfsdfsdfsdfsdfsdfs
                 ],
-                fontSize: deger / 2.5),
+                fontSize: deger / 1.8),
           )),
     );
   }

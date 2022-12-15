@@ -68,9 +68,9 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Bosluk().bosluk(100.0),
+            Bosluk().boslukYukseklik(100.0),
             denemebutonu("oyna", 1),
-            Bosluk().bosluk(120.0),
+            Bosluk().boslukYukseklik(120.0),
             denemebutonu("ayarlar", 2),
           ],
         ),
