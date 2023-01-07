@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:xox/widget_build/bosluk.dart';
 import 'package:xox/widget_build/renkler.dart';
 
+import '../sayfa_gecisi.dart';
 import '../xoxKutuXmiOmu.dart';
 
 class xoxGameScreen extends StatefulWidget {
@@ -132,7 +133,7 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
       decoration: BoxDecoration(
           color: Colors.amber,
           borderRadius: BorderRadius.circular(10),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 3,
               color: Colors.white,
@@ -161,12 +162,13 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
                     borderRadius: BorderRadius.circular(0));
               }),
               side: MaterialStateProperty.resolveWith<BorderSide>(
-                  (states) => BorderSide(
+                  (states) => const BorderSide(
                         color: Colors.white,
                       )),
               backgroundColor: MaterialStateProperty.all<Color>(Colors.black)),
           onPressed: () {
             xmioMu(buttonId);
+            kimKazanacak();
             setState(() {});
           },
           child: Text(
@@ -193,6 +195,48 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
                 fontSize: deger / 1.8),
           )),
     );
+  }
+
+  //b boş demek
+  List<String> birinciSatir = ["b", "b", "b"];
+  List<String> ikinciSatir = ["b", "b", "b"];
+  List<String> ucuncuSatir = ["b", "b", "b"];
+
+  oyunBitti() {
+    SayfaGecisleri().sayfagec(2, context);
+  }
+
+  kimKazanacak() {
+    //Yatay(satırlar kontrol ediliyor)
+    if (((s1s1 == s1s2) && (s1s1 == s1s3) && (s1s2 == s1s3)) &&
+        ((s1s1 == "X") || (s1s1 == "O"))) {
+      oyunBitti();
+    } else if (((s2s1 == s2s2) && (s2s1 == s2s3) && (s2s2 == s2s3)) &&
+        ((s2s1 == "X") || (s2s1 == "O"))) {
+      oyunBitti();
+    } else if (((s3s1 == s3s2) && (s3s1 == s3s3) && (s3s2 == s3s3)) &&
+        ((s3s1 == "X") || (s3s1 == "O"))) {
+      oyunBitti();
+    }
+    //Dikey(sütunlar) kontrol ediliyor.
+    else if (((s1s1 == s2s1) && (s1s1 == s3s1) && (s2s1 == s3s1)) &&
+        ((s1s1 == "X") || (s1s1 == "O"))) {
+      oyunBitti();
+    } else if (((s1s2 == s2s2) && (s1s2 == s3s2) && (s2s2 == s3s2)) &&
+        ((s1s2 == "X") || (s1s2 == "O"))) {
+      oyunBitti();
+    } else if (((s1s3 == s2s3) && (s1s3 == s3s3) && (s2s3 == s3s3)) &&
+        ((s1s3 == "X") || (s1s3 == "O"))) {
+      oyunBitti();
+    }
+    //Çapraz kontrol ediliyor.
+    else if (((s1s1 == s2s2) && (s1s1 == s3s3) && (s2s2 == s3s3)) &&
+        ((s1s1 == "X") || (s1s1 == "O"))) {
+      oyunBitti();
+    } else if (((s3s1 == s2s2) && (s3s1 == s1s3) && (s2s2 == s1s3)) &&
+        ((s3s1 == "X") || (s3s1 == "O"))) {
+      oyunBitti();
+    }
   }
 
   @override
