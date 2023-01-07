@@ -44,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
               backgroundColor:
                   MaterialStateProperty.all<Color>(Renkler().buttonRengi)),
           onPressed: () {
-            SayfaGecisleri().sayfagec(butonId, context);
+            SayfaGecisleri().sayfagec(butonId, context, "");
           },
           child: Text(
             textYazisi(buttonAdi),

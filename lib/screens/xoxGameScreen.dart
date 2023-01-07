@@ -202,40 +202,40 @@ class _xoxGameScreenState extends State<xoxGameScreen> {
   List<String> ikinciSatir = ["b", "b", "b"];
   List<String> ucuncuSatir = ["b", "b", "b"];
 
-  oyunBitti() {
-    SayfaGecisleri().sayfagec(2, context);
+  oyunBitti(yazi) {
+    SayfaGecisleri().sayfagec(2, context, yazi);
   }
 
   kimKazanacak() {
     //Yatay(satırlar kontrol ediliyor)
     if (((s1s1 == s1s2) && (s1s1 == s1s3) && (s1s2 == s1s3)) &&
         ((s1s1 == "X") || (s1s1 == "O"))) {
-      oyunBitti();
+      oyunBitti(s1s1);
     } else if (((s2s1 == s2s2) && (s2s1 == s2s3) && (s2s2 == s2s3)) &&
         ((s2s1 == "X") || (s2s1 == "O"))) {
-      oyunBitti();
+      oyunBitti(s2s1);
     } else if (((s3s1 == s3s2) && (s3s1 == s3s3) && (s3s2 == s3s3)) &&
         ((s3s1 == "X") || (s3s1 == "O"))) {
-      oyunBitti();
+      oyunBitti(s3s1);
     }
     //Dikey(sütunlar) kontrol ediliyor.
     else if (((s1s1 == s2s1) && (s1s1 == s3s1) && (s2s1 == s3s1)) &&
         ((s1s1 == "X") || (s1s1 == "O"))) {
-      oyunBitti();
+      oyunBitti(s1s1);
     } else if (((s1s2 == s2s2) && (s1s2 == s3s2) && (s2s2 == s3s2)) &&
         ((s1s2 == "X") || (s1s2 == "O"))) {
-      oyunBitti();
+      oyunBitti(s1s2);
     } else if (((s1s3 == s2s3) && (s1s3 == s3s3) && (s2s3 == s3s3)) &&
         ((s1s3 == "X") || (s1s3 == "O"))) {
-      oyunBitti();
+      oyunBitti(s1s3);
     }
     //Çapraz kontrol ediliyor.
     else if (((s1s1 == s2s2) && (s1s1 == s3s3) && (s2s2 == s3s3)) &&
         ((s1s1 == "X") || (s1s1 == "O"))) {
-      oyunBitti();
+      oyunBitti(s1s1);
     } else if (((s3s1 == s2s2) && (s3s1 == s1s3) && (s2s2 == s1s3)) &&
         ((s3s1 == "X") || (s3s1 == "O"))) {
-      oyunBitti();
+      oyunBitti(s3s1);
     }
   }
 

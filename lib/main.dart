@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xox/screens/game_over_screen.dart';
 import 'package:xox/screens/main_screen.dart';
 import 'package:xox/screens/xoxGameScreen.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MainScreen(),
+      //home: const GameOverScreen(),
       //home: const xoxGameScreen(),
     );
   }
