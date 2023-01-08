@@ -18,6 +18,16 @@ class GameOverScreen extends StatefulWidget {
 class _GameOverScreenState extends State<GameOverScreen> {
   @override
   Widget build(BuildContext context) {
+    final MediaQueryData mediaQueryData = MediaQuery.of(context);
+    final double deviceWidth = mediaQueryData.size.width;
+    final double heightInDesign = 260;
+    final double widthInDesign = 170;
+    final double padding = 18;
+    final double spaceBetween = 24;
+    final double responsiveWidth = (deviceWidth / 5);
+
+    final double responsiveHeight = responsiveWidth;
+
     initState() {
       setState(() {});
     }
@@ -30,6 +40,14 @@ class _GameOverScreenState extends State<GameOverScreen> {
         return "OYNA";
       } else {
         return "hata";
+      }
+    }
+
+    String yazilacakSonuc(yazi) {
+      if (yazi == "< Berabere >") {
+        return yazi;
+      } else {
+        return "< Kazanan " + yazi + " >";
       }
     }
 
@@ -63,13 +81,30 @@ class _GameOverScreenState extends State<GameOverScreen> {
           ));
     }
 
+    Widget kazananIsmi(deger) {
+      return Text(
+        yazilacakSonuc(widget.yazi),
+        style: TextStyle(
+          fontSize: deger / 2.5,
+          color: Renkler().metinRengi,
+          shadows: [
+            Shadow(color: Renkler().shadowColor, blurRadius: 3),
+            Shadow(color: Renkler().shadowColor, blurRadius: 6),
+            Shadow(color: Renkler().shadowColor, blurRadius: 9),
+            Shadow(color: Renkler().shadowColor, blurRadius: 12),
+            Shadow(color: Colors.white, blurRadius: 20),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(widget.yazi, style: TextStyle(color: Colors.blue)),
+            kazananIsmi(responsiveWidth),
             Bosluk().boslukYukseklik(100.0),
             denemebutonu("TekrarOyna", 1),
           ],
